@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import BotProfile from './BotProfile'; 
 
-function BotCollection() {
+function BotCollection({ bots }) {
   return (
-    <div>BotCollection</div>
-  )
+    <ul>
+      {bots.map((bot) => (
+        <BotProfile key={bot.id} bot={bot} />
+      ))}
+    </ul>
+  );
 }
 
 export default BotCollection;
