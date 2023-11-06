@@ -16,10 +16,10 @@ export default function NavBar() {
     <nav style={navStyle}>
       <ul>
         <li>
-          <Link to="/">BotCollection</Link>
+          <Link to="/">The Bot Collection</Link>
         </li>
         <li>
-          <Link to="/bot-army">Bot Army</Link> 
+          <Link to="/bot-army">The Bot Army</Link> 
         </li>
         <li>
           <Link to="/bot-profiles">Bot Profiles</Link> 

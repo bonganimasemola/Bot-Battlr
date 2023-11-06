@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import fetchBots from './api';
+import { fetchBots } from './api'; 
+
 
 export default function BotCollection({ enlistBot }) {
   const [bots, setBots] = useState([]);

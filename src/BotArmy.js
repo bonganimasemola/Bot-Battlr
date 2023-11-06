@@ -1,9 +1,20 @@
 import React from 'react';
+import { deleteBot } from './api'; 
 
-export default function YourBotArmy({ enlistedBots, releaseBot }) {
+
+export default function BotArmy({ enlistedBots, releaseBot }) {
+  const handleDelete = async (bot) => {
+    try {
+      await releaseBot(bot); 
+      await deleteBot(bot.id); 
+    } catch (error) {
+      console.error('Error deleting bot:', error);
+    }
+  };
+
   return (
     <div>
-      <h1>Your Bot Army</h1>
+      <h1>The Bot Army</h1>
       {enlistedBots.map((bot) => (
         <div key={bot.id}>
           <img src={bot.avatar_url} alt={bot.name} />
@@ -11,8 +22,7 @@ export default function YourBotArmy({ enlistedBots, releaseBot }) {
             <strong>Name:</strong> {bot.name} <strong>Bot Class:</strong> {bot.bot_class}
           </p>
           <button onClick={() => releaseBot(bot)}>Release</button>
-          {/* Add a "x" button to release the bot */}
-          <button onClick={() => releaseBot(bot)}>x</button>
+          <button onClick={() => handleDelete(bot)}>x</button> {
         </div>
       ))}
     </div>

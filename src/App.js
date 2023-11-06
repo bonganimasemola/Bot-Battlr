@@ -25,11 +25,11 @@ export default function App() {
   return (
     <Router>
       <div>
-        <NavBar color="black" title="" />
+        <NavBar />
         <Routes>
           <Route path="/" element={<BotCollection enlistBot={enlistBot} />} />
           <Route path="/bot-army" element={<BotArmy enlistedBots={enlistedBots} releaseBot={releaseBot} />} />
-          <Route path="/bot-profiles" element={<div>Going to render Single</div>} />
+          <Route path="/bot-profiles" element={<SingleBotProfile/>} />
           <Route path="/bot-profile/:botId" element={<SingleBotProfile enlistedBots={enlistedBots} />} />
         </Routes>
       </div>

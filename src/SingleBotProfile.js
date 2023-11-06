@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import fetchBots from './api';
+import { fetchBots } from './api'; 
+
 
 function SingleBotProfile({ enlistedBots }) {
   const { botId } = useParams();
