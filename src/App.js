@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BotCollection from './BotCollection';
 import BotArmy from './BotArmy';
 import SingleBotProfile from './SingleBotProfile';
-import NavBar from './NavBar'; 
+import NavBar from './NavBar';
+
+
+
 
 export default function App() {
   const [enlistedBots, setEnlistedBots] = useState([]);
@@ -14,20 +17,22 @@ export default function App() {
     }
   };
 
+  const releaseBot = (bot) => {
+    const updatedBots = enlistedBots.filter((b) => b.id !== bot.id);
+    setEnlistedBots(updatedBots);
+  };
+
   return (
     <Router>
       <div>
-        <NavBar /> 
+        <NavBar color="black" title="" />
         <Routes>
           <Route path="/" element={<BotCollection enlistBot={enlistBot} />} />
-          <Route path="/bot-army" element={<BotArmy enlistedBots={enlistedBots} />} />
+          <Route path="/bot-army" element={<BotArmy enlistedBots={enlistedBots} releaseBot={releaseBot} />} />
           <Route path="/bot-profiles" element={<div>Going to render Single</div>} />
           <Route path="/bot-profile/:botId" element={<SingleBotProfile enlistedBots={enlistedBots} />} />
-          <Route path="/" element={<div>Home</div>} />
         </Routes>
       </div>
     </Router>
   );
 }
-
-

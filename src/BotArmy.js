@@ -11,6 +11,8 @@ export default function YourBotArmy({ enlistedBots, releaseBot }) {
             <strong>Name:</strong> {bot.name} <strong>Bot Class:</strong> {bot.bot_class}
           </p>
           <button onClick={() => releaseBot(bot)}>Release</button>
+          {/* Add a "x" button to release the bot */}
+          <button onClick={() => releaseBot(bot)}>x</button>
         </div>
       ))}
     </div>

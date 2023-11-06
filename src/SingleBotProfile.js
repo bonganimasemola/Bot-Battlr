@@ -1,6 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import fetchBots from './api';
 
-function SingleBotProfile({ bot }) {
+function SingleBotProfile({ enlistedBots }) {
+  const { botId } = useParams();
+  const [bot, setBot] = useState(null);
+
+  useEffect(() => {
+  
+    async function fetchBotData() {
+      try {
+        const data = await fetchBots();
+        const selectedBot = data.find((b) => b.id === parseInt(botId));
+        if (selectedBot) {
+          setBot(selectedBot);
+        }
+      } catch (error) {
+        console.error('Error fetching bot data:', error);
+      }
+    }
+
+    if (!bot && botId) {
+      fetchBotData();
+    }
+  }, [bot, botId]);
+
+  if (!bot) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <h2>{bot.name}</h2>
@@ -15,7 +43,8 @@ function SingleBotProfile({ bot }) {
   );
 }
 
-export default SingleBotProfile; 
+export default SingleBotProfile;
+
 
 
 
