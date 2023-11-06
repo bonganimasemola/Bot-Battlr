@@ -22,7 +22,7 @@ export default function BotArmy({ enlistedBots, releaseBot }) {
             <strong>Name:</strong> {bot.name} <strong>Bot Class:</strong> {bot.bot_class}
           </p>
           <button onClick={() => releaseBot(bot)}>Release</button>
-          <button onClick={() => handleDelete(bot)}>x</button> {
+          <button onClick={() => handleDelete(bot)}>x</button> 
         </div>
       ))}
     </div>
