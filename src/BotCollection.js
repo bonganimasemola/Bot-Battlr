@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchBots } from './api'; 
+import './styles.css'; 
 
 
 export default function BotCollection({ enlistBot }) {
@@ -24,7 +25,7 @@ export default function BotCollection({ enlistBot }) {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1 className="TheBotCollection">The Bot Collection</h1>
       {bots.map((bot) => (
         <div key={bot.id}>

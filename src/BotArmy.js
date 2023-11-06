@@ -13,7 +13,7 @@ export default function BotArmy({ enlistedBots, releaseBot }) {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>The Bot Army</h1>
       {enlistedBots.map((bot) => (
         <div key={bot.id}>
