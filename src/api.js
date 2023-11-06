@@ -1,4 +1,4 @@
-const API = 'http://localhost:8001/bots'; 
+const API = 'http://localhost:3000'; 
 
 const fetchBots = async () => {
   try {
@@ -16,6 +16,4 @@ const fetchBots = async () => {
 };
 
 export default fetchBots;
-
-
-  
+ 
